@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Ivasapuram Revanasiddeshwara</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="about.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="dark">
+  <div class="bg-overlay"></div>
+
+  <header>
+    <div class="profile-banner container header-banner">
+      <div class="banner-left">
+        <button id="theme-toggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <div class="banner-center header-text">
+        <h1 class="main-heading">Get to know the person behind the code</h1>
+        <nav class="banner-nav" aria-label="Primary">
+          <a class="nav-btn" href="resume.html">Home</a>
+          <a class="nav-btn" href="#about">About</a>
+          <a class="nav-btn" href="#profiles">Profiles</a>
+          <a class="nav-btn" href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="banner-right">
+        <img src="profile.jpg" alt="Profile Photo" class="profile-photo" />
+      </div>
+    </div>
+  </header>
+
+  <main class="container wide">
+    <section id="about" class="fade-in glass">
+      <h2>About</h2>
+      <div class="heading-line"></div>
+      <p>
+        I’m <strong>Ivasapuram Revanasiddeshwara</strong> — a passionate and curious software developer based in Bengaluru, India.
+        I believe that technology is a tool to bring positive change and help people connect and grow.
+      </p>
+      <p>
+        My projects range from AI-based cyberbullying detection to practical web apps that make everyday tasks easier. I enjoy problem solving, learning new tools, and building things that matter.
+      </p>
+    </section>
+
+    <section id="profiles" class="fade-in glass">
+      <h2>Online Profiles</h2>
+      <div class="heading-line"></div>
+      <div class="profiles-grid">
+        <a href="https://github.com/revan-ra1" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://leetcode.com/u/Ivasapuram_Revanasiddeswara/" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+        <a href="https://www.linkedin.com/in/ivasapuram-revanasiddeswara-a335652a3" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.hackerrank.com/profile/i_revan2020" target="_blank"><i class="fab fa-hackerrank"></i> HackerRank</a>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in glass">
+      <h2>Contact</h2>
+      <div class="heading-line"></div>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:l.revan2020@gmail.com">l.revan2020@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+919353552035">+91 9353552035</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ivasapuram-revanasiddeswara-a335652a3" target="_blank">LinkedIn Profile</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ivasapuram Revanasiddeshwara. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle + overlay and banner color control
+    (function () {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const icon = toggleBtn.querySelector('i');
+      const body = document.body;
+      const overlay = document.querySelector('.bg-overlay');
+
+      function applyMode() {
+        if (body.classList.contains('dark')) {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          overlay.style.background = 'linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55))';
+        } else {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+          overlay.style.background = 'linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35))';
+        }
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        applyMode();
+      });
+
+      // Smooth internal anchor scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      applyMode();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+  --primary: #1abc9c;
+  --text-light: #eefaf6;
+  --banner-bg: rgba(30,30,30,0.65);
+  --banner-text: var(--text-light);
+  --banner-border: rgba(255,255,255,0.06);
+  --bg-night: url("background_code_night.jpg");
+  --bg-day: url("background_code_day.jpg");
+  --edge-gap: 22px;
+}
+
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: 'Roboto', sans-serif; -webkit-font-smoothing:antialiased; }
+body {
+  background: var(--bg-night) center/cover fixed no-repeat;
+  color: var(--banner-text);
+  transition: background 0.45s ease, color 0.35s ease;
+  padding: var(--edge-gap);
+}
+body:not(.dark) { background: var(--bg-day) center/cover fixed no-repeat; color: #111; }
+
+/* overlay element */
+.bg-overlay { position: fixed; inset:0; z-index:0; pointer-events:none; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)); transition: background 0.35s ease; }
+
+/* layout layering */
+header, main, footer, .glass, .profile-banner { position: relative; z-index: 1; }
+
+/* profile banner */
+.profile-banner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 20px;
+  border-radius:12px;
+  margin:18px auto;
+  background: var(--banner-bg);
+  color: var(--banner-text);
+  border:1px solid var(--banner-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  max-width: 1150px;
+}
+
+/* columns */
+.banner-left, .banner-center, .banner-right { display:flex; align-items:center; }
+.banner-center { flex:1 1 auto; flex-direction: column; justify-content:center; text-align:center; gap:10px; }
+
+/* theme button */
+.theme-btn { background:transparent; border:none; font-size:1.35rem; color:var(--primary); padding:8px; border-radius:8px; cursor:pointer; }
+.theme-btn:hover { transform: rotate(12deg) scale(1.05); }
+
+/* heading */
+.main-heading { margin:0; font-size:1.6rem; font-weight:600; color: inherit; }
+
+/* nav */
+.banner-nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.nav-btn { background:transparent; border:1px solid rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; text-decoration:none; color:inherit; font-weight:600; transition: transform .12s; }
+.nav-btn:hover { transform: translateY(-3px); background: var(--primary); color:#111; }
+
+/* profile photo */
+.profile-photo { width:140px; height:140px; border-radius:50%; border:4px solid var(--primary); object-fit:cover; box-shadow:0 10px 24px rgba(0,0,0,0.5); }
+
+/* glass sections */
+.glass { margin:36px auto; max-width:1150px; padding:28px; background: rgba(255,255,255,0.04); border-radius:12px; backdrop-filter: blur(6px) saturate(120%); box-shadow: 0 12px 30px rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.04); color: inherit; }
+body:not(.dark) .glass { background: rgba(255,255,255,0.96); color: #111; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 26px rgba(0,0,0,0.06); }
+
+/* headings / lines */
+h2 { font-size:1.7rem; margin:0 0 8px 0; color:var(--primary); }
+.heading-line { height:4px; width: calc(100% - 40px); background: linear-gradient(90deg, var(--primary), rgba(26,188,156,0.18)); border-radius:3px; margin:12px 0 18px 0; }
+
+/* profiles grid */
+.profiles-grid { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:6px; }
+.profiles-grid a { display:flex; align-items:center; gap:10px; background:var(--primary); color:white; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; transition:transform 0.2s; }
+.profiles-grid a:hover { transform: translateY(-4px); }
+
+/* contact */
+.contact-info { margin-top:6px; color: inherit; }
+.contact-info a { color: var(--primary); text-decoration:none; }
+
+/* footer */
+footer { color: inherit; text-align:center; padding:14px 0; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .profile-banner { flex-direction:column; align-items:center; gap:10px; padding:12px; }
+  .banner-left { order:1; align-self:flex-start; margin-left:10px; }
+  .banner-center { order:2; width:100%; }
+  .banner-right { order:3; margin-top:6px; }
+  .profile-photo { width:130px; height:130px; }
+  .heading-line { width: calc(100% - 24px); }
+}
+@media (max-width: 480px) {
+  .profile-photo { width:110px; height:110px; }
+  .heading-line { width: calc(100% - 18px); }
+}
